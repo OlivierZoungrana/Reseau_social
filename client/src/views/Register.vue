@@ -13,7 +13,7 @@
    <label for="">Bio</label>
    <b-form-textarea class="carre"   v-model="postBio" type="textarea"></b-form-textarea> <br><br>
    </form>
-        <a href="/about">Vous avez déja un compte</a><br>
+        <a href="/login">Vous avez déja un compte</a><br>
    <b-button variant="primary" v-on:click="postPost">REGISTER</b-button>
   <div v-if="postpost">
     {{messages}}

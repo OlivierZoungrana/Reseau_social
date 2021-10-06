@@ -13,28 +13,32 @@
 3.
 
 #### Installation
- ##### Cloner le repository sur votre machine
+ #### Cloner le repository sur votre machine
 ```
 git clone 
 ```
-###### création d'une base de données 
+##### création d'une base de données 
 
 créer une base de données avec deux tables. USERS et MESSAGES
 
 avec les champs suivant: 
 
-USERS:
-userId
-username,
-email
-bio
+    USERS:
+        1.userId
+        2.username,
+        3.email
+        4bio
 
-MESSAGES:
-id
-title,
-content, 
-attachment,
+    MESSAGES:
+        1.id
+        2.title,
+        3.content, 
+        4.attachment,
 
 
-#### Démarrage 
+#### Démarrage du serveur node 
+
+```
+ http://localhost:8080/ 
+```
 
