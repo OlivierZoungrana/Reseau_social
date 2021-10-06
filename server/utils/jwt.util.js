@@ -1,4 +1,5 @@
 let jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 const JWT_SIGN_SECRET= "secret"
 require('dotenv').config()
 
@@ -14,6 +15,7 @@ module.exports ={
         })
 
     },
+    
 
     parseAuthorization : function(authorization){
         return (authorization!= null)? authorization.replace('Bearer ', ''):null

@@ -67,11 +67,11 @@ exports.listMessage = (req, res, next)=>{
 
     Model.Message.findAll({
         order: [(order!= null)? order.split(':'): ['title', 'ASC']],
-        attributes: (fiels !== '*' && fields != null)? fields.split(','):null,
+        attributes: (fields !== '*' && fields != null)? fields.split(','):null,
         limit: (!isNaN(limit))? offset :null,
         offset: (!isNaN(offset))? offset : null,
         include :[{
-            model: models.User,
+            model: Model.User,
             attributes: ['username']
         }]
     }).then(function(messages){

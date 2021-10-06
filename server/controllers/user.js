@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt')
 let jwtUtils = require('../utils/jwt.util')
 let Model = require('../models')
 let asynclib =require('async');
+const cookieParser = require("cookie-parser");
+
 require('dotenv').config()
 
 
@@ -92,19 +94,20 @@ exports.login = (req, res,next)=>{
                     return res.status(200).json({
                         'userId': userFound.id,
                         'token': jwtUtils.generateTokenForuser(userFound)
-                                        })
+                    })
+                
                 }else{
                     return res.status(403).json({"error": "invalid password"})
                 }
             })
-
         }else{
-            return res.status(404).json({'eeror': 'user not exist in DB'})
+            return res.status(404).json({'error': 'user not exist in DB'})
         }
     })
     .catch(function(err){
         return res.status(500).json({'error': 'unable to verify user'})
     })
+    console.log(res.token)
 
 }
 exports.getUserProfile = (req, res, next)=>{
