@@ -1,19 +1,19 @@
-#Mise en place d'un réseau social d'entreprise
+# Mise en place d'un réseau social d'entreprise
 
-##Table de matières 
+## Table de matières 
 1.
 2.
 
-###Pour commencer
+### Pour commencer
 
-####Pré-réquis
+#### Pré-réquis
 
 1.
 2.
 3.
 
-####Installation
+#### Installation
 
 
-####Démarrage 
+#### Démarrage 
 
