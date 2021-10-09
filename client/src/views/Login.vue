@@ -1,16 +1,17 @@
 <template>
 
- <div class="form-group container">
-   <h1>Login</h1>
+ <div class=" col-xs-6 col-lg-6 form-group container  col-md-auto">
+      <div class="">
+          <h1>S'authentifier</h1>
 
-   <form action="">
-   <label class="mail" for="">email</label>
-   <b-form-input class="carre"  v-model="postMail" type="text"></b-form-input><br>
-   <label for="">password</label>
-   <b-form-input class="carre" v-model="postPassword" type="password" name="" id=""></b-form-input><br>
-   </form>
-   <b-button variant="primary" v-on:click="postLogin">Login</b-button>
-  
+          <form action="">
+          <label class="mail" for="">email</label>
+          <b-form-input class="carre"  v-model="postMail" type="text"></b-form-input><br>
+          <label for="">Mot de passe</label>
+          <b-form-input class="carre" v-model="postPassword" type="password" name="" id=""></b-form-input><br>
+          </form>
+          <b-button variant="primary" v-on:click="postLogin">Login</b-button>
+      </div>
   </div>
 
 </template>
@@ -60,5 +61,12 @@ import router from '../router'
  .form-group{
    background-color: rgb(124, 48, 108);
  }
+
+ .log{
+ 
+ 
+ }
+
+
 
 </style>

@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "olivier",
-    "password": "Amour1988@",
+    "password": "iloveJesus1987@",
     "database": "database_development_retro",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "olivier",
-    "password": "Amour1988@",
+    "password": "iloveJesus1987@",
     "database": "database_test_retro",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "olivier",
-    "password": "Amour1988@",
+    "password": "iloveJesus1987@",
     "database": "database_production_retro",
     "host": "127.0.0.1",
     "dialect": "mysql"

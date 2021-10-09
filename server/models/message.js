@@ -1,6 +1,6 @@
 'use strict'
 
-const { sequelize } = require(".")
+ const { sequelize } = require(".")
 
 module.exports = (sequelize, DataTypes)=>{
   var Message = sequelize.define('Message', {
@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes)=>{
   },{
     classMethods: {
       associate: function(models){
+        models.Message.hasMany(models.Commentaire)
+
         models.Message.belongsTo(models.User, {
           foreignKey:{
             allowNull: false

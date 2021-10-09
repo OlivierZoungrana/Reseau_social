@@ -49,7 +49,8 @@ exports.createMessage = (req, res, next)=>{
                 res.status(404).json({'error': 'user not found'})
             }
         },
-    ],function(newMessage){
+    ],
+    function(newMessage){
         if(newMessage){
             return res.status(201).json(newMessage)
         }else{

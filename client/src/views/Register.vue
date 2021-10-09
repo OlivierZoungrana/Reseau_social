@@ -1,16 +1,16 @@
 <template>
 
- <div class="form-group container">
-   <h1>REGISTER</h1>
+ <div class="col-xs-6 col-lg-6 form-group container">
+   <h1>Création de compte</h1>
 
    <form action="">
    <label class="mail" for="">email</label>
    <b-form-input class="carre"  v-model="postMail" type="text"></b-form-input><br>
-   <label for="">username</label>
+   <label for="">Identifiant</label>
    <b-form-input class="carre"   v-model="postUsername" type="text"></b-form-input><br>
-   <label for="">password</label>
+   <label for="">Mot de passe</label>
    <b-form-input class="carre" v-model="postPassword" type="password" name="" id=""></b-form-input><br>
-   <label for="">Bio</label>
+   <label for="">Biographie</label>
    <b-form-textarea class="carre"   v-model="postBio" type="textarea"></b-form-textarea> <br><br>
    </form>
         <a href="/login">Vous avez déja un compte</a><br>
