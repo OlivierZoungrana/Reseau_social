@@ -15,31 +15,33 @@
 
 1. Migration de la Base de données
  
- ````
- npm install sequelize
+ ```
+npm install sequelize
 ```
-installer le module mysql2
+####installer le module mysql2
 
 ````
 npm install mysql2
 ````
-effectuer la migration 
+####effectuer la migration 
 
-````
+```
 sequelize db:migrate
 ```
 
 2. lancer le client avec yarn 
 
-````
+```
 yarn install 
 ```
 
-````
+```
 yarn serve 
 ```
 
 3. lancer le serveur 
+
+
 ```
 nodemon server
 ```
