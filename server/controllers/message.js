@@ -4,6 +4,8 @@ let jwtUtils= require('../utils/jwt.util');
 const TITLE_LIMIT = 2
 const CONTENT_LIMIT= 4
 
+const ModelMessage = require('../models/message')
+
 exports.createMessage = (req, res, next)=>{
 
     var headerAuth = req.headers['authorization'];
@@ -58,6 +60,7 @@ exports.createMessage = (req, res, next)=>{
         }
     
 });
+
 },
 
 exports.listMessage = (req, res, next)=>{

@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios'
+import store from '../store'
 // @ is an alias to /src
  import Messages from '../components/Messages'
 export default {
@@ -27,7 +28,11 @@ export default {
   methods:{
     getMessage(){
 
-         axios.get('http://localhost:8080/api/messages/')
+         axios.get('http://localhost:8080/api/messages/', {
+           headers: {
+             authorization: `Bearer ${store.getters.token}`
+           }
+         })
          .then(response => {
              this.messages = response.data
             

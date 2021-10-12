@@ -1,14 +1,27 @@
+
 const state = ()=>({
-    loginApiStatus:"",
+    userId: null,
+    token: null,
 })
 
 
-const getters={};
-const actions ={};
-const mutations ={};
+const getters = {
+    isAuthenticated: state => !!state.userId,
+   
+    token: state => state.token,
+}
+
+const actions = {}
+const mutations = {
+    setUserAuth(state, infos) {
+        state.userId = infos.userId
+        state.token = infos.token
+    }, 
+
+}
 
 export default {
-    namespaced: true,
+    namespaced: false,
     state,
     getters,
     actions,

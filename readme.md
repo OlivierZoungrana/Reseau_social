@@ -8,15 +8,48 @@
 
 #### Pré-réquis
 
-1. Création d'une base de données relationnelle
-2. 
-3.
+1. Création d'une base de données relationnelle sur mysql nommé ' BD_rezo_GROUPOMANIA'
+
 
 #### Installation
- #### Cloner le repository sur votre machine
+
+1. Migration de la Base de données
+ 
+ ````
+ npm install sequelize
 ```
-git clone 
+installer le module mysql2
+
+````
+npm install mysql2
+````
+effectuer la migration 
+
+````
+sequelize db:migrate
 ```
+
+2. lancer le client avec yarn 
+
+````
+yarn install 
+```
+
+````
+yarn serve 
+```
+
+3. lancer le serveur 
+```
+nodemon server
+```
+
+
+
+
+
+
+
 ##### création d'une base de données 
 
 créer une base de données avec deux tables. USERS et MESSAGES
