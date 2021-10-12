@@ -18,12 +18,12 @@
  ```
 npm install sequelize
 ```
-####installer le module mysql2
+#### installer le module mysql2
 
 ````
 npm install mysql2
 ````
-####effectuer la migration 
+#### effectuer la migration 
 
 ```
 sequelize db:migrate
@@ -41,39 +41,8 @@ yarn serve
 
 3. lancer le serveur 
 
-
 ```
 nodemon server
-```
+``
 
-
-
-
-
-
-
-##### création d'une base de données 
-
-créer une base de données avec deux tables. USERS et MESSAGES
-
-avec les champs suivant: 
-
-    USERS:
-        1.userId
-        2.username,
-        3.email
-        4bio
-
-    MESSAGES:
-        1.id
-        2.title,
-        3.content, 
-        4.attachment,
-
-
-#### Démarrage du serveur node 
-
-```
- http://localhost:8080/ 
-```
 
