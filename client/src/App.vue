@@ -1,48 +1,27 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <b-navbar toggleable="lg" type="dark" variant="info" class="navbar-expand-lg navbar-dark  shadow">
       <div class="container">
-        <router-link to="/" class="navbar-brand">Rézo Groupomania</router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-              <router-link v-if="isLoggedIn" to="/message" class="nav-link">Poster un message</router-link>
-            </li>
-          </ul>
-        </div>
-         
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-           
-          </ul>
-        </div>
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-User  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-     <li class="nav-item"> 
-        <a class="nav-link" v-if="isLoggedIn" @click="logout">Logout</a>
-       <router-link v-else to="/login" class="nav-link">Login</router-link>
-    </li>
-  </ul>
-</div>
+ <router-link to="/" class="navbar-brand">Rézo Groupomania</router-link>
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-<div>
-  <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
-    <b-dropdown-item><a class="nav-link" v-if="isLoggedIn" @click="logout">Logout</a>
-</b-dropdown-item>
-    <b-dropdown-item>Second Action</b-dropdown-item>
-    <b-dropdown-item>Third Action</b-dropdown-item>
-    <b-dropdown-divider></b-dropdown-divider>
-    <b-dropdown-item active>Active action</b-dropdown-item>
-    <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-  </b-dropdown>
-</div>
-      </div>
-    </nav>
+    <b-collapse id="nav-collapse" is-nav class="">
+      
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item-dropdown right class="">
+          <!-- Using 'button-content' slot -->
+          <template #button-content class="">
+            <em v-if="isLoggedIn">User</em>
+          </template>
+          <b-dropdown-item v-if="isLoggedIn" href="/message">Poster votre message</b-dropdown-item>
+          <b-dropdown-item v-if="isLoggedIn" href="/profil">Profil</b-dropdown-item>
+          <b-dropdown-item v-if="isLoggedIn" @click="logout" href="#">Déconnexion</b-dropdown-item>
+          <b-dropdown-item v-else  href="/login">login</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+    </div>
+  </b-navbar>
 
     <div class="container py-5">
       <router-view/>
@@ -74,6 +53,7 @@ import router from './router'
     methods:{
 
      async logout(){
+       alert("vous serez deconnecté")
         await  localStorage.removeItem("vuex")
         location.reload();
         router.push("/login")

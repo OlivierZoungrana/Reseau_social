@@ -3,7 +3,7 @@
  <div  class="container cardMessage">
     <div class="recents">
         <h2>Récents</h2>
-        <Message/>
+        <!-- <Messages/> -->
     </div>
      <div>
       <h2>Tous les Messages</h2>

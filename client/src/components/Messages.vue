@@ -6,39 +6,26 @@
 <!-- <b-button @click="getMessage">VOIR</b-button> -->
 <div>
 
-  <!-- <b-card
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-  >
-  
-    <b-card-title >
-        {{message.title}}
-    </b-card-title>
-    <b-card-text >
-        {{message.content}}
-    </b-card-text>
 
-    <b-button @click="getOneMessage"  href="/DetailsMessage" variant="primary">Plus de Détails</b-button>
-  </b-card> -->
-<div class="card mb-1" style="max-width: 1000px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://picsum.photos/600/300/?image=25" class="img-fluid rounded-start" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{message.title}}</h5>
-        <p class="card-text">{{message.content}}</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        <router-link :to="{ name:'DetailsMessage', params:{id:id}}" class="btn btn-primary">Voir Plus</router-link>
-      </div>
-    </div>
-  </div>
-</div>
+  <b-card no-body class="overflow-hidden" style="max-width: 540px; max-height: 540px">
+    <b-row no-gutters>
+      <b-col md="6">
+        <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0"></b-card-img>
+      </b-col>
+      <b-col md="6">
+        <b-card-body class="" title="">
+            <b-card-title >
+              {{message.title}}
+             </b-card-title>
+            <b-card-text class="text-truncate" >
+              {{message.content}}
+            </b-card-text>
+            <b-button href="/DetailsMessage" variant="primary">Plus de Détails</b-button>
+        </b-card-body>
+      </b-col>
+    </b-row>
+  </b-card>
+
 </div>
  </div>
 </template>
@@ -73,6 +60,14 @@ export default {
 </script>
 
 <style scoped>
+/* .text-content{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.text-content:hover{
+  overflow: visible;
+} */
 
 </style>
