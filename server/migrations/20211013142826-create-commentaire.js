@@ -12,6 +12,24 @@ module.exports = {
         allowNull:false,
         type: Sequelize.STRING
       },
+      messageId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Messages',
+          key:'id'
+        }
+
+      },
+      userId: {
+        allowNull:false,
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Users',
+          key:'id'
+        }
+
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -19,23 +37,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      userId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references:{
-          model: 'Users',
-          key:'id'
-        }
-      },
-      messageId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references:{
-          model: 'Messages',
-          key:'id'
-        }
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {

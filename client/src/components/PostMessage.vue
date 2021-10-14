@@ -21,9 +21,10 @@
 <script>
 import axios from 'axios'
 import router from '../router'
-import { mapMutations } from 'vuex'
-const token =JSON.parse(localStorage.getItem('vuex'))
-console.log(token);
+import { mapGetters, mapMutations } from 'vuex'
+ const {token} = JSON.parse(localStorage.getItem('vuex'))
+
+
 
 
   export default {
@@ -38,17 +39,22 @@ console.log(token);
         'setUserAuth'
 
       ]),
+      ...mapGetters([
+          'token'
+      ]),
       postMessage(){
         axios.post('http://localhost:8080/api/messages/new/',{
-          headers:{"Authorization":`Bearer ${token}`},
           title: this.postTitle,
           content: this.postContent
+        },{
+         headers:{"Authorization":`Bearer ${this.token()}`},
+
         })
         .then((response)=>{
           console.log(token);
 
             console.log(response)
-            this.setUserAuth(response.data)
+            // this.setUserAuth(response.data)
             this.$vToastify.success(`Bravo`, 'Message enregistré')
             router.push("/")
         })
@@ -57,6 +63,11 @@ console.log(token);
         })
       },
     
+    },
+
+    mounted(){
+
+      console.log(this.$store.state.token, this.token())
     }
    
   }

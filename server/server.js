@@ -3,12 +3,15 @@ const bodyParser = require('body-parser')
 const server = express();
 const userRoutes = require('./routes/user')
 const messRoutes = require('./routes/message')
+const likeRoutes= require('./routes/like')
+const comentRoutes= require('./routes/comment')
 const cookie = require('cookie-parser')
 let jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const JWT_SIGN_SECRET= "secret"
+const path = require('path')
 
-require('dotenv').config()
+
 
 server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -22,8 +25,13 @@ server.use((req, res, next) => {
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
 
+
+ server.use('/images', express.static(path.join(__dirname, 'images')));
+
 server.use('/api',userRoutes )
 server.use('/api', messRoutes)
+server.use('/api',likeRoutes)
+server.use('/api', comentRoutes)
 // server.use(cookieParser());
 
 server.get('/', function (req, res, next){

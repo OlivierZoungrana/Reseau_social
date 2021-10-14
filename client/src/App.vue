@@ -16,12 +16,31 @@
          
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item"> 
-                <a class="nav-link" v-if="isLoggedIn" @click="logout">Logout</a>
-                 <router-link v-else to="/login" class="nav-link">Login</router-link>
-            </li>
+           
           </ul>
         </div>
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+User  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+     <li class="nav-item"> 
+        <a class="nav-link" v-if="isLoggedIn" @click="logout">Logout</a>
+       <router-link v-else to="/login" class="nav-link">Login</router-link>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
+    <b-dropdown-item><a class="nav-link" v-if="isLoggedIn" @click="logout">Logout</a>
+</b-dropdown-item>
+    <b-dropdown-item>Second Action</b-dropdown-item>
+    <b-dropdown-item>Third Action</b-dropdown-item>
+    <b-dropdown-divider></b-dropdown-divider>
+    <b-dropdown-item active>Active action</b-dropdown-item>
+    <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+  </b-dropdown>
+</div>
       </div>
     </nav>
 
@@ -56,7 +75,18 @@ import router from './router'
 
      async logout(){
         await  localStorage.removeItem("vuex")
+        location.reload();
         router.push("/login")
+      },
+
+      getName(){
+
+         
+      },
+
+      mounted(){
+              console.log(this.$store.state.token, this.token())
+
       }
     }
   

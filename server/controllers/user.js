@@ -4,7 +4,6 @@ let Model = require('../models')
 let asynclib =require('async');
 const cookieParser = require("cookie-parser");
 
-require('dotenv').config()
 
 
 // REGEX

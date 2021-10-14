@@ -4,15 +4,14 @@ let jwtUtils= require('../utils/jwt.util');
 const TITLE_LIMIT = 2
 const CONTENT_LIMIT= 4
 
-const ModelMessage = require('../models/message')
 
 exports.createMessage = (req, res, next)=>{
 
     var headerAuth = req.headers['authorization'];
     var userId = jwtUtils.getUserId(headerAuth);
 
-    let title = req.body.title;
-    let content = req.body.content;
+    var title = req.body.title;
+    var content = req.body.content;
 
     if(title==null || content ==null){
         return res.status(400).json({'error': 'missing parameters'})
@@ -40,12 +39,13 @@ exports.createMessage = (req, res, next)=>{
                 Model.Message.create({
                     title: title,
                     content: content,
+                    // attachment: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
                     likes: 0,
                     UserId: userFound.id
 
                 })
                 .then(function(newMessage){
-                    done(null, userFound, newMessage)
+                    done(newMessage)
                 });
             }else{
                 res.status(404).json({'error': 'user not found'})
@@ -58,7 +58,7 @@ exports.createMessage = (req, res, next)=>{
         }else{
             return res.status(500).json({'error': 'cannot post messages'})
         }
-    
+        // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MzQwMzUzNjQsImV4cCI6MTYzNDAzODk2NH0.-YYK1xoAWu6yTmIsvbJwPSgRrlxnuz6fDh6tNH5wsoE
 });
 
 },
@@ -99,5 +99,23 @@ exports.updateMessage =(req, res, next)=>{
 }
 
  exports.deleteMessage=(req, res, next)=>{
+
+ }
+
+ exports.listMessagebyId=  (req, res, next)=>{
+
+    Model.Message.findOne({
+        _id: req.params.id
+    }).then(
+        (messages)=>{
+            res.status(200).json(messages)
+        }
+    ).catch(
+        (error)=>{
+            res.status(404).json({
+                error:error
+            })
+        }
+    )
 
  }

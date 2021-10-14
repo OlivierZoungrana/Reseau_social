@@ -7,7 +7,6 @@ const state = ()=>({
 
 const getters = {
     isAuthenticated: state => !!state.userId,
-   
     token: state => state.token,
 }
 
