@@ -50,7 +50,7 @@ const routes = [
 
    
   {
-    path: '/detailsMessage',
+    path: '/detailsMessage/:id',
     name: 'detailsmessage',
     component: () => import(/* webpackChunkName: "about" */ '../views/DetailsMessage.vue')
 

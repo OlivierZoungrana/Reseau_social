@@ -28,7 +28,7 @@ export default {
   name: 'Home',
   data(){
       return {
-        messages: []
+        messages: [],
       }
     },
   components: {

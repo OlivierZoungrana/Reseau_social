@@ -103,12 +103,11 @@ exports.updateMessage =(req, res, next)=>{
  }
 
  exports.listMessagebyId=  (req, res, next)=>{
-
-    Model.Message.findOne({
-        _id: req.params.id
-    }).then(
-        (messages)=>{
-            res.status(200).json(messages)
+const id= req.params.id
+    Model.Message.findByPk(id)
+    .then(
+        (message)=>{
+            res.status(200).json(message)
         }
     ).catch(
         (error)=>{

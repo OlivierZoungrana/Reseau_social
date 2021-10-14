@@ -3,7 +3,10 @@
     <h2>DETAILS MESSAGE</h2>
     <div class="message-fields">
         <div>
-            <MessageUnique/> 
+            <MessageUnique
+            v-bind:message="message"
+            v-bind:key="message"
+            />
         </div>
         <div class="comment">
             <Commentaire/>
@@ -26,33 +29,44 @@ import Commentaire from '../components/Commentaire'
 import ListCommentaire from '../components/ListCommentaire'
 import store from '../store'
 
+
+
 export default {
 
+
+    props: ['message'],
+
+data(){
+        return{
+            commentaires:[],
+            id: this.$route.params.id,
+            content:"",
+            messages:[],
+            title:"",
+        }
+    },
     components:{
         MessageUnique,
         Commentaire,
         ListCommentaire
     }, 
-
-    data(){
-
-        return{
-            commentaires:[]
-        }
-
-    },
+    
     methods:{
 
          getOneMessage(){
-          axios.get('http://localhost:8080/api/messages/:id')
+             var id = this.$route.params.id
+        return  axios.get(`http://localhost:8080/api/messages/${id}`,{
+               
+          })
           .then((response)=>{
               console.log(response)
-           
+                this.message = response.message
+                console.log(response.data.title)     
+
           })
         },
 
          getCommentaire(){
-
          axios.get('http://localhost:8080/api/messages/:messageId/coment/', {
            headers: {
              authorization: `Bearer ${store.getters.token}`
@@ -64,11 +78,17 @@ export default {
          })
          return this.commentaires
      },
+
+  
     }, 
 
     created(){
         this.getOneMessage()
         this.getCommentaire()
+    },
+
+    mounted(){
+     
     }
     
 }

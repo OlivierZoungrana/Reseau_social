@@ -11,19 +11,17 @@
 1. Création d'une base de données relationnelle sur mysql nommé ' BD_rezo_GROUPOMANIA'
 
 
-#### Installation
+#### Installation des dépendances
 
-1. Migration de la Base de données
- 
- ```
-npm install sequelize
+depuis le repertoire client et server
+
+````
+npm install
 ```
-#### installer le module mysql2
 
-````
-npm install mysql2
-````
-#### effectuer la migration 
+
+
+#### Effectuer la migration 
 
 ```
 sequelize db:migrate

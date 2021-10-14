@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div class="col-xs-6 col-lg-6 form-group container">
 
     <div>
   <b-card no-body class="overflow-hidden" style="max-width: 540px;">

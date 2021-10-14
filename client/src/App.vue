@@ -55,7 +55,6 @@ import router from './router'
      async logout(){
        alert("vous serez deconnecté")
         await  localStorage.removeItem("vuex")
-        location.reload();
         router.push("/login")
       },
 

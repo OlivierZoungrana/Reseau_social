@@ -3,7 +3,6 @@
  <div>
    
      
-<!-- <b-button @click="getMessage">VOIR</b-button> -->
 <div>
 
 
@@ -20,7 +19,7 @@
             <b-card-text class="text-truncate" >
               {{message.content}}
             </b-card-text>
-            <b-button href="/DetailsMessage" variant="primary">Plus de Détails</b-button>
+              <router-link :to="{ name: 'detailsmessage', params: {id:message.id}}" class="btn btn-primary">Plus de Détails</router-link>
         </b-card-body>
       </b-col>
     </b-row>
@@ -49,11 +48,6 @@ export default {
  
           return {token}
       }
-
-
-  
-      
-   
     }
   
 }
