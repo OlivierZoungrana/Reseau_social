@@ -7,7 +7,7 @@ router.post('/users/register/', userCtrl.register)
 router.post('/users/login/',userCtrl.login)
 router.get('/users/me/',userCtrl.getUserProfile)
 router.put('/users/me/', userCtrl.updateUserProfile)
-router.delete('/users/me', userCtrl.deleteUserProfile)
+router.delete('/users/me/:userId', userCtrl.deleteUserProfile)
 
 
 

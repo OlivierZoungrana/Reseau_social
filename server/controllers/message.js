@@ -23,6 +23,7 @@ exports.createMessage = (req, res, next)=>{
 
     asynclib.waterfall([
         function(done){
+           try{
             Model.User.findOne({
                 where:{id:userId}
             })
@@ -32,32 +33,45 @@ exports.createMessage = (req, res, next)=>{
             .catch(function(err){
                 return res.status(500).json({'error': 'unable to verify'})
             });
-
+        }catch(err){
+            console.log(err)
+        }
         },
         function(userFound, done){
-            if(userFound){
-                Model.Message.create({
-                    title: title,
-                    content: content,
-                    // attachment: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-                    likes: 0,
-                    UserId: userFound.id
-
-                })
-                .then(function(newMessage){
-                    done(newMessage)
-                });
-            }else{
-                res.status(404).json({'error': 'user not found'})
+            try{
+                if(userFound){
+                    
+                    Model.Message.create({
+                        title: title,
+                        content: content,
+                        // attachment: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+                        likes: 0,
+                        UserId: userFound.id
+    
+                    })
+                    .then(function(newMessage){
+                       done(newMessage)
+                    });
+                }else{
+                    res.status(404).json({'error': 'user not found'})
+                }
+            }catch(err){
+                console.log(err)
+    
             }
-        },
+    
+            },
     ],
     function(newMessage){
+    try{
         if(newMessage){
             return res.status(201).json(newMessage)
         }else{
             return res.status(500).json({'error': 'cannot post messages'})
         }
+    }catch(err){
+        console.log(err)
+    }
         // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2MzQwMzUzNjQsImV4cCI6MTYzNDAzODk2NH0.-YYK1xoAWu6yTmIsvbJwPSgRrlxnuz6fDh6tNH5wsoE
 });
 

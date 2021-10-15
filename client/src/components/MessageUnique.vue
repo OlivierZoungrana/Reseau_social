@@ -15,6 +15,8 @@
     <b-card-text >
      {{message.content}}
     </b-card-text>
+    <small>{{message.createdAt}}</small>
+
 
   </b-card>
 </div>

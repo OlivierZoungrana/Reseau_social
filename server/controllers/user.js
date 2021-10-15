@@ -167,5 +167,23 @@ exports.updateUserProfile = (req, res, next)=>{
 }
 
 exports.deleteUserProfile = (req, res, next)=>{
+const id = parseInt(req.params.userId)
+    Model.message.destroy({
+        
+        where: {id}
+    
+    }).then(
+        () => {
+          res.status(200).json({
+            message: 'Deleted!'
+          });
+        }
+      ).catch(
+        (error) => {
+          res.status(400).json({
+            error: error
+          });
+        }
+      );
 
 }

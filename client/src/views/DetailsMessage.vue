@@ -85,7 +85,9 @@ data(){
      },
 
   
-    }, 
+    },
+    
+    
 
     created(){
         this.getOneMessage()
