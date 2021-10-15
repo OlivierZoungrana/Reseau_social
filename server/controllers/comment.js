@@ -63,8 +63,13 @@ exports.createComent =(req, res, next)=>{
 }
 
 exports.listComent=(req, res, next)=>{
-
-    Model.Commentaire.findAll()
+    const id = req.params.messageId
+   
+    Model.Commentaire.findAll({
+        where: {
+         messageId: id
+        }
+    })
     .then((messages)=>{res.status(200).json(messages)})
     .catch((error)=>{res.status(400).json({error:error})})
 

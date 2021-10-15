@@ -10,9 +10,10 @@
     class="mb-2"
   >
     <b-card-title >
+     {{message.title}}
     </b-card-title>
     <b-card-text >
-     
+     {{message.content}}
     </b-card-text>
 
   </b-card>
@@ -25,7 +26,13 @@
 <script>
 export default {
    name:'Message',
-   props: ['message'], 
+   props: {
+     message:{
+       type: Object,
+
+       default: ()=>({})
+     }
+   }, 
 }
 </script>
 
