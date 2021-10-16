@@ -47,7 +47,7 @@ export default {
         })
         .then((response)=>{
           console.log(token);
-
+            location.reload()
             console.log(response)
             // this.setUserAuth(response.data)
             this.$vToastify.success(`Bravo`, 'Commentaire enregistré')
@@ -58,6 +58,10 @@ export default {
         })
     
         },
+
+        mounted(){
+        
+        }
     } 
 }
 </script>

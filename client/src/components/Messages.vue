@@ -30,7 +30,6 @@
 </template>
 
 <script>
-
 // @ is an alias to /src
 export default {
     name:'Message',
@@ -41,6 +40,7 @@ export default {
     }
 
   },
+
     methods:{
 
       getToken(){

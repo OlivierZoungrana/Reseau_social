@@ -32,9 +32,20 @@
 
 <script>
 import router from './router'
+import { mapGetters, mapMutations } from 'vuex'
 
 
+const {token} = JSON.parse(localStorage.getItem('vuex'))
+console.log(token)
   export default {
+
+   ...mapMutations([
+        'setUserAuth'
+
+      ]),
+      ...mapGetters([
+          'token'
+      ]),
 
 
     created(){
@@ -59,13 +70,15 @@ import router from './router'
       },
 
       getName(){
+                console.log(this.token())
+
 
          
       },
 
       mounted(){
+              this.getName()
               console.log(this.$store.state.token, this.token())
-
       }
     }
   

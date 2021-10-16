@@ -7,6 +7,7 @@ module.exports ={
     generateTokenForuser: function(userData){
         return jwt.sign({
             userId: userData.id,
+            username: userData.username,
             isAdmin: userData.isAdmin,
             // username: userData.userName
         },

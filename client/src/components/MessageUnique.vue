@@ -15,10 +15,17 @@
     <b-card-text >
      {{message.content}}
     </b-card-text>
-    <small>{{message.createdAt}}</small>
+   
+     <div class="like">
+      <i  class="far fa-thumbs-up fa-2x"></i>
+     <i  class="far fa-thumbs-down fa-2x"></i>
+     </div>
+      <small>{{message.createdAt}}</small> <br>
+
 
 
   </b-card>
+  
 </div>
 </div>
     
@@ -40,5 +47,13 @@ export default {
 
 
 <style scoped>
+
+.like{
+  
+}
+
+.fa-thumbs-up{
+  margin-right: 10px;
+}
 
 </style>
