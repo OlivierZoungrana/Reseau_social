@@ -35,8 +35,8 @@ import router from './router'
 import { mapGetters, mapMutations } from 'vuex'
 
 
-const {token} = JSON.parse(localStorage.getItem('vuex'))
-console.log(token)
+//  const {token} = JSON.parse(localStorage.getItem('vuex'))
+// console.log(token)
   export default {
 
    ...mapMutations([
@@ -78,7 +78,7 @@ console.log(token)
 
       mounted(){
               this.getName()
-              console.log(this.$store.state.token, this.token())
+              // console.log(this.$store.state.token, this.token())
       }
     }
   

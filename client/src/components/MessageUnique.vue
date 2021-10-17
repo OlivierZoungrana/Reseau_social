@@ -19,7 +19,7 @@
      
    </div>
      <div class="like">
-      <i @click="postLike"  class="far fa-thumbs-up fa-2x"><span>{{countLike}}</span></i>
+      <i @click="postLike" id="like"  class="far fa-thumbs-up fa-2x"><span>{{message.likes}}</span></i>
      </div>
       <small>{{message.createdAt}}</small> <br>
 
@@ -78,11 +78,12 @@ export default {
         })
         .then((response)=>{
           console.log(token);
-
+            document.getElementById("like").style.color= "green"
+            location.reload()
             console.log(response)
             // this.setUserAuth(response.data)
             this.$vToastify.success(`Bravo`, 'Like enregistré')
-            router.push(`/detailsMessage/${id}`)
+           
         })
         .catch(e=>{
           return e
