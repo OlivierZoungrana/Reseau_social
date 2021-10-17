@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="dark" variant="info" class="navbar-expand-lg navbar-dark  shadow">
       <div class="container">
- <router-link to="/" class="navbar-brand">Rézo Groupomania</router-link>
+ <router-link to="/" class="navbar-brand"><img class="logo" :src="require('./assets/icon-left-font-monochrome-black.png')" alt=""></router-link>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav class="">
@@ -97,6 +97,11 @@ console.log(token)
 .nav{
   margin-left: 10px;
 
+}
+
+.logo{
+  width: 100px;
+  height: 100px;
 }
 
 

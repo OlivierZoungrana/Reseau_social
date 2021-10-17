@@ -8,7 +8,7 @@
      <div>
       <h2>Tous les Messages</h2>
       </div>
-    <div class="list">
+    <div class="list ">
      
     <Messages 
     v-for="message in messages" 
@@ -82,6 +82,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 1em;
+  align-items: space-between;
 }
 
 </style>

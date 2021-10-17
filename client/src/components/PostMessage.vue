@@ -8,9 +8,12 @@
    <b-form-input class="carre" v-model="postTitle" type="text"></b-form-input><br>
    <label for="">Contenu</label>
    <b-form-textarea class="carre"   v-model="postContent" type="textarea"></b-form-textarea> <br><br>
-   <div class="input-group mb-3">
-  <input type="file" class="form-control" id="inputGroupFile02">
-  </div>
+   <!-- <div class="input-group mb-3">
+  <input  type="file" class="form-control" id="inputGroupFile02">
+  </div> -->
+  <b-form-group label="Default:" label-cols-sm="2">
+    <b-form-file  id="file-default"></b-form-file>
+  </b-form-group>
    </form>
    <b-button variant="primary" v-on:click="postMessage">POSTER MESSAGE</b-button>
   
@@ -32,6 +35,7 @@ import { mapGetters, mapMutations } from 'vuex'
       return{
         postTitle:"",
         postContent:"",
+        postAttachment:""
       }
     },
     methods: {
@@ -45,7 +49,8 @@ import { mapGetters, mapMutations } from 'vuex'
       postMessage(){
         axios.post('http://localhost:8080/api/messages/new/',{
           title: this.postTitle,
-          content: this.postContent
+          content: this.postContent,
+          // attachment:this.postAttachment
         },{
          headers:{"Authorization":`Bearer ${this.token()}`},
 

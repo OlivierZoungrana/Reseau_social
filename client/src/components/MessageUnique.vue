@@ -15,10 +15,11 @@
     <b-card-text >
      {{message.content}}
     </b-card-text>
-   
+   <div>
+     
+   </div>
      <div class="like">
-      <i  class="far fa-thumbs-up fa-2x"></i>
-     <i  class="far fa-thumbs-down fa-2x"></i>
+      <i @click="postLike"  class="far fa-thumbs-up fa-2x"><span>{{countLike}}</span></i>
      </div>
       <small>{{message.createdAt}}</small> <br>
 
@@ -33,6 +34,10 @@
 
 
 <script>
+import router from '../router'
+ const {token} = JSON.parse(localStorage.getItem('vuex'))
+import { mapGetters, mapMutations } from 'vuex'
+import axios from "axios"
 export default {
    name:'Message',
    props: {
@@ -42,6 +47,74 @@ export default {
        default: ()=>({})
      }
    }, 
+
+   data(){
+
+     return {
+
+       countLike: 0
+     }
+
+   },
+
+   methods:{
+
+     ...mapMutations([
+        'setUserAuth'
+
+      ]),
+      ...mapGetters([
+          'token'
+      ]),
+
+     postLike(){
+             var id = this.$route.params.id
+
+         axios.post(`http://localhost:8080/api/messages/${id}/vote/like`,{
+         
+        },{
+         headers:{"Authorization":`Bearer ${this.token()}`},
+
+        })
+        .then((response)=>{
+          console.log(token);
+
+            console.log(response)
+            // this.setUserAuth(response.data)
+            this.$vToastify.success(`Bravo`, 'Like enregistré')
+            router.push(`/detailsMessage/${id}`)
+        })
+        .catch(e=>{
+          return e
+        })
+      },
+
+    
+   },
+
+   postDislike(){
+
+     var id = this.$route.params.id
+
+         axios.post(`http://localhost:8080/api/messages/${id}/vote/dislike`,{
+         
+        },{
+         headers:{"Authorization":`Bearer ${this.token()}`},
+
+        })
+        .then((response)=>{
+          console.log(token);
+
+            console.log(response)
+            // this.setUserAuth(response.data)
+            this.$vToastify.success(`Bravo`, 'Dislike enregistré')
+            router.push(`/detailsMessage/${id}`)
+        })
+        .catch(e=>{
+          return e
+        })
+      },
+
 }
 </script>
 
