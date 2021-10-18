@@ -12,7 +12,7 @@ exports.createMessage = (req, res, next)=>{
 
     var title = req.body.title;
     var content = req.body.content;
-    // var attachment= req.body.attachment
+     var attachment= req.body.attachment
 
     if(title==null || content ==null){
         return res.status(400).json({'error': 'missing parameters'})
@@ -45,7 +45,7 @@ exports.createMessage = (req, res, next)=>{
                     Model.Message.create({
                         title: title,
                         content: content,
-                        // attachment:`${req.protocol}://${req.get('host')}/images/${req.file}`,
+                        attachment:`${req.protocol}://${req.get('host')}/images/${req.file[0].filename}`,
                         likes: 0,
                         UserId: userFound.id,
                         

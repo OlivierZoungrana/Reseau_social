@@ -26,7 +26,7 @@ server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
 
 
- server.use('/images', express.static(path.join(__dirname, 'images')));
+ server.use('./images', express.static(path.join(__dirname, 'images')));
 
 server.use('/api',userRoutes )
 server.use('/api', messRoutes)

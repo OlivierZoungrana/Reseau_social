@@ -3,7 +3,7 @@ const router = express.Router();
 const MessagesCtrl = require('../controllers/message')
 const multer = require('../utils/multer-config')
 
-router.post('/messages/new/', MessagesCtrl.createMessage)
+router.post('/messages/new/',multer, MessagesCtrl.createMessage)
 router.get('/messages/', MessagesCtrl.listMessage)
 router.get('/messages/:id', MessagesCtrl.listMessagebyId)
 router.get('/messages/recent', MessagesCtrl.lastMessage)

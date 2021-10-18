@@ -12,13 +12,9 @@
    <b-form-input class="carre" v-model="postPassword" type="password" name="" id=""></b-form-input><br>
    <label for="">Biographie</label>
    <b-form-textarea class="carre"   v-model="postBio" type="textarea"></b-form-textarea> <br><br>
-    <div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-  <label class="form-check-label" for="flexSwitchCheckDefault">Etes vous Admin?</label>
-</div>
    </form>
         <a href="/login">Vous avez déja un compte</a><br>
-   <b-button variant="primary" v-on:click="postPost">REGISTER</b-button>
+   <b-button variant="primary" v-on:click="postPost">ENVOYEZ</b-button>
   <div v-if="postpost">
     {{messages}}
   </div>

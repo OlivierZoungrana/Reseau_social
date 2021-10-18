@@ -168,9 +168,10 @@ exports.updateUserProfile = (req, res, next)=>{
 
 exports.deleteUserProfile = (req, res, next)=>{
 const id = parseInt(req.params.userId)
-    Model.message.destroy({
+console.log(req.params.userId)
+    Model.User.destroy({
         
-        where: {id}
+        where: {id: id}
     
     }).then(
         () => {

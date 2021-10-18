@@ -8,12 +8,13 @@
 
 #### Pré-réquis
 
-1. Création d'une base de données relationnelle sur mysql nommé ' BD_rezo_GROUPOMANIA'
+1. Création d'une base de données relationnelle sur mysql nommé ' database_development_retro'
+2. mettre à jour les parmaètre du server selon votre configuration dans le fichier config.json du server
 
 
 #### Installation des dépendances
 
-depuis le repertoire client et server
+depuis le repertoire  server
 
 ````
 npm install
@@ -21,7 +22,7 @@ npm install
 
 
 
-#### Effectuer la migration 
+#### Effectuer la migration de la base de données 
 
 ```
 sequelize db:migrate

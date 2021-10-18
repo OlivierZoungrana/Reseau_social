@@ -15,7 +15,7 @@
            
           </b-card-text>
         </b-card-body>
-          <b-button variant="danger">Supprimer Mon Profil</b-button>
+          <b-button @click="deleteUser" variant="danger">Supprimer Mon Profil</b-button>
 
       </b-col>
     </b-row>
@@ -52,7 +52,15 @@ import { mapGetters } from 'vuex'
       // },
 
 
-    }, 
+    },
+    
+    methods:{
+
+      deleteUser(){
+
+        alert("veuillez contactez votre administrateur afin de valider la suppression")
+      }
+    }
 
   
   }
