@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info" class="navbar-expand-lg navbar-dark  shadow">
+    <b-navbar toggleable="lg" type="light" variant="light" class="navbar-expand-lg   shadow">
       <div class="container">
- <router-link to="/" class="navbar-brand"><img class="logo" :src="require('./assets/icon-left-font-monochrome-black.png')" alt=""></router-link>
+ <router-link to="/" class="navbar-brand"><img class="logo" :src="require('./assets/icon-left-font.png')" alt=""></router-link>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav class="">
@@ -73,15 +73,10 @@ import { mapGetters, mapMutations } from 'vuex'
         router.push("/login")
       },
 
-      getName(){
-                console.log(this.token())
-
-
-         
-      },
+    
 
       mounted(){
-              this.getName()
+              // this.getName()
               // console.log(this.$store.state.token, this.token())
       }
     }
@@ -106,6 +101,10 @@ import { mapGetters, mapMutations } from 'vuex'
 .logo{
   width: 100px;
   height: 100px;
+}
+
+.bg-info{
+  background-color: none;
 }
 
 

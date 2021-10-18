@@ -10,9 +10,9 @@
       </b-col>
       <b-col md="6">
         <b-card-body title="Mon Profil">
+          <b-card-title class="titre">{{getUsername}}</b-card-title>
           <b-card-text>
-            This is a wider card with supporting text as a natural lead-in to additional content.
-            This content is a little bit longer.
+           
           </b-card-text>
         </b-card-body>
           <b-button variant="danger">Supprimer Mon Profil</b-button>
@@ -27,12 +27,46 @@
 
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
+
+
+//  const {token} = JSON.parse(localStorage.getItem('vuex'))
+// console.log(token)
+  export default {
+
+   
+      ...mapGetters([
+          'token'
+      ]),
+
+
+    computed:{
     
-}
+
+      getUsername: function() {
+        return this.$store.getters.username
+      },
+
+      // getEmail: function() {
+      //   return this.$store.getters.email
+      // },
+
+
+    }, 
+
+  
+  }
 </script>
 
 
 <style  scoped>
+
+.titre{
+
+  text-transform: uppercase;
+  size: 2em;
+  font-weight: bold;
+
+}
 
 </style>
