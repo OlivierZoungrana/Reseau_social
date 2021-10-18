@@ -135,3 +135,34 @@ const id= req.params.id
     )
 
  }
+
+ exports.lastMessage= (req, res, next)=>{
+
+    let fields = req.query.fields;
+    let limit = parseInt(req.query.limit)
+    let offset = parseInt(req.query.offset)
+    let order = req.query.order
+
+    Model.Message.findAll({
+        order: [(order!= null)? order.split(':'): ['title', 'ASC']],
+        attributes: (fields !== '*' && fields != null)? fields.split(','):null,
+        limit: 3,
+        offset: (!isNaN(offset))? offset : null,
+        include :[{
+            model: Model.User,
+            attributes: ['username']
+        }]
+    }).then(function(messages){
+        if(messages){
+            res.status(200).json(messages)
+        }else{
+            res.status(400).json({'error': 'no message found'})
+        }
+
+    }).catch(function(err){
+        console.log(err)
+        res.status(500).json({'error': 'invalid fieds'})
+    })
+
+
+ }

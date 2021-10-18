@@ -1,19 +1,15 @@
 <template>
 
  <div  class="container cardMessage">
-    <div class="recents">
-        <h2>Récents</h2>
-        <!-- <Messages/> -->
-    </div>
      <div>
       <h2>Tous les Messages</h2>
       </div>
     <div class="list ">
      
-    <Messages 
-    v-for="message in messages" 
-    v-bind:key="message.id"
-    v-bind:message="message"/>
+      <Messages 
+        v-for="message in messages" 
+        v-bind:key="message.id"
+        v-bind:message="message"/>
     </div>
  </div>
  

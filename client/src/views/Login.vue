@@ -43,8 +43,10 @@ import router from '../router'
           password: this.postPassword,
         })
         .then((response)=>{
-            console.log(response)
-            this.setUserAuth(response.data)
+            console.log(response.data)
+            let infos = response.data
+            infos.username = this.getUsername(response.data.token)
+            this.setUserAuth(infos)
             this.$vToastify.success(`Bon retour parmi nous !`, 'Authentification')
             router.push("/")
         })
@@ -52,6 +54,11 @@ import router from '../router'
           return e
         })
       },
+      getUsername(token) {
+        let tokenParts = token.split('.')
+        let tokenInfos = JSON.parse(atob(tokenParts[1]))
+        return tokenInfos.username
+      }
   
     }
    

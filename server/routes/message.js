@@ -6,6 +6,7 @@ const multer = require('../utils/multer-config')
 router.post('/messages/new/', MessagesCtrl.createMessage)
 router.get('/messages/', MessagesCtrl.listMessage)
 router.get('/messages/:id', MessagesCtrl.listMessagebyId)
+router.get('/messages/recent', MessagesCtrl.lastMessage)
 module.exports = router;
 
 

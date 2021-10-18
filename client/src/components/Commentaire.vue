@@ -1,12 +1,12 @@
 <template>
-    <div class="flex-column">
-        <form action="">
+    <div>
+        <form action="" class="mb-3">
             <label for="">Votre commentaire</label>
-            <b-form-textarea v-model="postCommentaire" class="carre" type="textarea"></b-form-textarea> <br><br>
+            <b-form-textarea v-model="postCommentaire" class="carre mb-3" type="textarea"></b-form-textarea>
+            <b-button variant="primary" v-on:click="postComment">
+              Enregistrer
+            </b-button>
         </form>
-        <b-button variant="primary" v-on:click="postComment">
-            
-            Enregistrer</b-button>
 
     </div>
 </template>

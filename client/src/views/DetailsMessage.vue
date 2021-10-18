@@ -1,20 +1,20 @@
 <template>
 <div class="details">
     <h2>DETAILS MESSAGE</h2>
-    <div class="message-fields">
-        <div>
-            <MessageUnique 
-            v-bind:message="message"
-            >
-            
-            </MessageUnique>
 
-           
-        </div>
-        <div class="comment">
-            <Commentaire/>
-        </div>
+    <div>
+        <MessageUnique 
+        v-bind:message="message"
+        >
+        
+        </MessageUnique>
+
+        
     </div>
+    <div class="comment">
+        <Commentaire/>
+    </div>
+
    <div class="list-comment">
        <ListCommentaire
        v-for="commentaire in commentaires"
@@ -91,12 +91,12 @@ data(){
 
     created(){
         this.getOneMessage()
-        this.getCommentaire()
+         this.getCommentaire()
         
     },
 
     mounted(){
-        this.getCommentaire()
+        // this.getCommentaire()
 
     }
     
@@ -105,14 +105,5 @@ data(){
 
 
 <style scoped>
-.message-fields{
-    display: flex;
-    justify-content: space-between;
-}
 
-.details{
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-}
 </style>

@@ -8,16 +8,17 @@
     <b-collapse id="nav-collapse" is-nav class="">
       
       <b-navbar-nav class="ml-auto">
-        <b-nav-item-dropdown right class="">
+
+        <b-nav-item-dropdown right v-if="isLoggedIn">
           <!-- Using 'button-content' slot -->
           <template #button-content class="">
-            <em v-if="isLoggedIn">User</em>
+            <em>{{ getUsername }}</em>
           </template>
-          <b-dropdown-item v-if="isLoggedIn" href="/message">Poster votre message</b-dropdown-item>
-          <b-dropdown-item v-if="isLoggedIn" href="/profil">Profil</b-dropdown-item>
-          <b-dropdown-item v-if="isLoggedIn" @click="logout" href="#">Déconnexion</b-dropdown-item>
-          <b-dropdown-item v-else  href="/login">login</b-dropdown-item>
+          <b-dropdown-item  href="/message">Poster votre message</b-dropdown-item>
+          <b-dropdown-item href="/profil">Profil</b-dropdown-item>
+          <b-dropdown-item @click="logout" href="#">Déconnexion</b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item href="/login" v-else>login</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
     </div>
@@ -26,7 +27,7 @@
     <div class="container py-5">
       <router-view/>
     </div>
-
+    
   </div>
 </template>
 
@@ -39,10 +40,7 @@ import { mapGetters, mapMutations } from 'vuex'
 // console.log(token)
   export default {
 
-   ...mapMutations([
-        'setUserAuth'
-
-      ]),
+   
       ...mapGetters([
           'token'
       ]),
@@ -55,17 +53,23 @@ import { mapGetters, mapMutations } from 'vuex'
     },
 
     computed:{
-      isLoggedIn : function(){
+      isLoggedIn: function() {
         return this.$store.getters.isAuthenticated
+      },
+
+      getUsername: function() {
+        return this.$store.getters.username
       },
 
     }, 
 
     methods:{
-
-     async logout(){
-       alert("vous serez deconnecté")
-        await  localStorage.removeItem("vuex")
+      ...mapMutations([
+        'resetAuth'
+      ]),
+      logout(){
+        alert("vous serez deconnecté")
+        this.resetAuth()
         router.push("/login")
       },
 
