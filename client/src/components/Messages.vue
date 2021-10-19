@@ -6,7 +6,7 @@
 <div>
 
 
-  <b-card no-body class="overflow-hidden" style="max-width: 540px; max-height: 540px">
+  <b-card tabindex="0" no-body class="overflow-hidden" style="max-width: 540px; max-height: 540px">
     <b-row no-gutters>
       <b-col md="6">
         <b-card-img src="https://picsum.photos/400/400/?image=20" alt="Image" class="rounded-0">
