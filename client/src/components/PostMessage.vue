@@ -11,9 +11,9 @@
    <!-- <div class="input-group mb-3">
   <input  type="file" class="form-control" id="inputGroupFile02">
   </div> -->
-  <b-form-group label="Default:" label-cols-sm="2">
+  <!-- <b-form-group label="Default:" label-cols-sm="2">
     <b-form-file  id="file-default"></b-form-file>
-  </b-form-group>
+  </b-form-group> -->
    </form>
    <b-button variant="primary" v-on:click="postMessage">POSTER MESSAGE</b-button>
   

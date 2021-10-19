@@ -1,20 +1,20 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" variant="light" class="navbar-expand-lg   shadow">
+    <b-navbar tabindex="0" aria-label="bouton de navigation" toggleable="lg" type="light" variant="light" class="navbar-expand-lg   shadow">
       <div class="container">
  <router-link to="/" class="navbar-brand"><img class="logo" :src="require('./assets/icon-left-font.png')" alt=""></router-link>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav class="">
       
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav tabindex="1" class="ml-auto">
 
         <b-nav-item-dropdown right v-if="isLoggedIn">
           <!-- Using 'button-content' slot -->
           <template #button-content class="">
             <em>{{ getUsername }}</em>
           </template>
-          <b-dropdown-item  href="/message">Poster votre message</b-dropdown-item>
+          <b-dropdown-item   href="/message">Poster votre message</b-dropdown-item>
           <b-dropdown-item href="/profil">Profil</b-dropdown-item>
           <b-dropdown-item @click="logout" href="#">Déconnexion</b-dropdown-item>
         </b-nav-item-dropdown>
@@ -24,7 +24,7 @@
     </div>
   </b-navbar>
 
-    <div class="container py-5">
+    <div  class="container py-5">
       <router-view/>
     </div>
     

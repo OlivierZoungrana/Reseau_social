@@ -1,12 +1,12 @@
 <template>
 
- <div  class="container cardMessage">
+ <div  class="container cardMessage ">
      <div>
       <h2>Tous les Messages</h2>
       </div>
     <div class="list ">
      
-      <Messages 
+      <Messages tabindex="0"
         v-for="message in messages" 
         v-bind:key="message.id"
         v-bind:message="message"/>
@@ -79,6 +79,7 @@ export default {
   justify-content: space-between;
   padding-top: 1em;
   align-items: space-between;
+  
 }
 
 </style>
